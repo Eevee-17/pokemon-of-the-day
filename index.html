@@ -10,9 +10,25 @@
 <p>The date is: <span id="date_disp"></span></p>
 
 <script>
-    date = new Date();
+    let date = new Date();
 
-    date_disp.innerHTML = (date.getMonth() + 1) + '/' + date.getDate();
+    let month_formatted = null;
+    if (date.getMonth() < 9) {
+        month_formatted = '0' + (date.getMonth() + 1);
+    } else {
+        month_formatted = (date.getMonth() + 1).toString();
+    }
+
+    let day_formatted = null;
+    if (date.getDate() < 10) {
+        day_formatted = '0' + date.getDate();
+    } else {
+        day_formatted = date.getDate().toString();
+    }
+
+    let date_formatted = month_formatted + '/' + day_formatted;
+
+    date_disp.innerHTML = date_formatted;
 </script>
 </body>
 </html>
