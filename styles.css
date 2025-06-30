@@ -1,0 +1,21 @@
+body {
+    background-color: #f92;
+    
+    margin: 0px;
+}
+.main {
+    background-color: #fc8;
+    
+    margin: auto;
+    padding: 10px;
+    border: 8px solid #f92;
+    
+    max-width: 64em;
+    min-height: 20em;
+    
+    text-align: center;
+    overflow-x: auto;
+}
+#potd {
+    font-size: min(12vw, 6em);
+}
