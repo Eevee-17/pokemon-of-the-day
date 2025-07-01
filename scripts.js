@@ -25,3 +25,5 @@ load_api().then(api => {
         potd.innerHTML = api[date_formatted];
     }
 });
+
+pkmn_img.src = "./sprites/" + date_formatted.replace('/', '') + ".png";
