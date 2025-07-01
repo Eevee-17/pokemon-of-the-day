@@ -16,5 +16,7 @@ body {
     overflow-x: auto;
 }
 #potd {
+    margin-bottom: 0px;
+
     font-size: min(12vw, 6em);
 }
