@@ -1,23 +1,129 @@
+/* Réinitialisation et police de base */
 body {
-    background-color: #f92;
-    
-    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Le fond est maintenant géré par p5.js */
+    background-color: #333; /* Fallback */
+    overflow: hidden; /* Empêche les barres de défilement causées par le canvas */
 }
-.main {
-    background-color: #fc8;
-    
-    margin: auto;
-    padding: 10px;
-    border: 8px solid #f92;
-    
-    max-width: 64em;
-    
-    text-align: center;
-    overflow-x: auto;
-}
-#potd {
-    margin-bottom: 0px;
-    margin-top: 24px;
 
-    font-size: min(12vw, 6em);
+/* Conteneur pour l'animation p5.js */
+#p5-canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place le canvas derrière tout le reste */
+}
+
+/* La carte Pokémon */
+.pokemon-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Fond légèrement transparent */
+    backdrop-filter: blur(10px); /* Effet de flou sur l'arrière-plan */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 350px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    border: 8px solid rgba(241, 196, 15, 0.9);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    z-index: 1; /* S'assure que la carte est au-dessus du fond */
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+/* En-tête de la carte */
+.card-header {
+    margin-bottom: 15px;
+}
+
+#pokemon-name {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    color: #333;
+    text-transform: capitalize;
+}
+
+#pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.type-badge {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Image */
+.image-container {
+    background-color: rgba(242, 242, 242, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokemon-image {
+    max-width: 100%;
+    max-height: 180px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+/* Pied de la carte */
+.card-footer {
+    color: #555;
+}
+
+#pokemon-id {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Contrôles */
+.controls {
+    margin-top: 25px;
+    text-align: center;
+    z-index: 1; /* S'assure que le bouton est cliquable */
+}
+
+#random-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#random-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
 }
