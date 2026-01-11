@@ -26,4 +26,4 @@ load_api().then(api => {
     }
 });
 
-pkmn_img.src = "./sprites/" + date_formatted.replace('/', '') + ".png";
+pkmn_img.src = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/" + date_formatted.replace('/', '') + ".png";
